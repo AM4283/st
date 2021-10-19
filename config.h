@@ -5,8 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
-static char *font2[] = { "JoyPixels:pixelsize=10:antialias=true:autohint=true" };
+//static char *font = "mononoki Nerd Font:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Fira Code:pixelsize=17:antialias=true:autohint=true";
+//static char *font = "SauceCodePro Nerd Font:pixelsize=17:antialias=true:autohint=true";
+static char *font2[] = { "Noto Color Emoji:pixelsize=13:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
@@ -17,7 +19,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/sh";
+static char *shell = "/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -107,32 +109,99 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
-	"#cc241d",
-	"#98971a",
-	"#d79921",
-	"#458588",
-	"#b16286",
-	"#689d6a",
-	"#a89984",
-	"#928374",
-	"#fb4934",
-	"#b8bb26",
-	"#fabd2f",
-	"#83a598",
-	"#d3869b",
-	"#8ec07c",
-	"#ebdbb2",
-	[255] = 0,
+	// "#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+    // Gruvbox dark
+	/* "#cc241d", */
+	/* "#98971a", */
+	/* "#d79921", */
+	/* "#458588", */
+	/* "#b16286", */
+	/* "#689d6a", */
+	/* "#a89984", */
+	/* "#928374", */
+	/* "#fb4934", */
+	/* "#b8bb26", */
+	/* "#fabd2f", */
+	/* "#83a598", */
+	/* "#d3869b", */
+	/* "#8ec07c", */
+	/* "#ebdbb2", */
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+	/* "#add8e6", 256 -> cursor */ 
+	/* "#555555", 257 -> rev cursor*/ 
+	/* "#282828", 258 -> bg */ 
+	/* "#ebdbb2", 259 -> fg */ 
+   // Nord Dark 
+	 /*      "#3b4252", */
+	 /*      "#bf616a", */
+	 /*      "#a3be8c", */
+	 /*      "#eacb8b", */
+	 /*      "#81a1c1", */
+	 /*      "#b48ead", */
+	 /*      "#88c0d0", */
+	 /*      "#e5e8ef", */
+	 /*      "#4c566a", */
+	 /*      "#bf616a", */
+	 /*      "#a3be8c", */
+	 /*      "#eacb8b", */
+	 /*      "#81a1c1", */
+	 /*      "#b48ead", */
+	 /*      "#8fbcbb", */
+	 /*      "#ebeef3", */
+	 /* [255] = 0, */
+	 /* "#add8e6", */
+	 /* "#555555", */
+	 /* "#2e3440", */
+	 /* "#ebeef3", */
+    // Fairy Floss Dark
+     "#42395d", //black
+     "#a8757b", //red
+     "#ff857f", //green
+     "#e6c000", //yellow
+     "#ae81ff", //blue
+     "#716799", //purple
+     "#c2ffdf", //teal
+     "#f8f8f2", //white
+     "#75507b", //bright black
+     "#ffb8d1", //bright red
+     "#f1568e", //bright green
+     "#d5a425", //bright yellow
+     "#c5a3ff", //bright blue
+     "#8077a8", //bright purple
+     "#c2ffff", //bright teal
+     "#f8f8f0", //bright white
+     [255] = 0,
+     "#ffc6d0", //cursor
+     "#555555", //inverse cursor
+     /* "#5a5475", //background */
+     "#232731",
+     "#f8f8f0", //foreground
+
+     /* "#", //black */
+     /* "#", //red */
+     /* "#", //green */
+     /* "#", //yellow */
+     /* "#", //blue */
+     /* "#", //purple */
+     /* "#", //teal */
+     /* "#", //white */
+     /* "#", //bright black */
+     /* "#", //bright red */
+     /* "#", //bright green */
+     /* "#", //bright yellow */
+     /* "#", //bright blue */
+     /* "#", //bright purple */
+     /* "#", //bright teal */
+     /* "#", //bright white */
+     /* [255] = 0, */
+     /* "#", //cursor */
+     /* "#", //inverse cursor */
+     /* "#", //background */
+     /* "#", //foreground */
 };
 
 
@@ -186,7 +255,7 @@ static uint forcemousemod = ShiftMask;
  */
 ResourcePref resources[] = {
 		{ "font",         STRING,  &font },
-		{ "fontalt0",     STRING,  &font2[0] },
+		{ "fontemoji",    STRING,  &font2[0] },
 		{ "color0",       STRING,  &colorname[0] },
 		{ "color1",       STRING,  &colorname[1] },
 		{ "color2",       STRING,  &colorname[2] },
@@ -205,7 +274,8 @@ ResourcePref resources[] = {
 		{ "color15",      STRING,  &colorname[15] },
 		{ "background",   STRING,  &colorname[258] },
 		{ "foreground",   STRING,  &colorname[259] },
-		{ "cursorColor",  STRING,  &colorname[256] },
+		{ "cursor",  STRING,  &colorname[256] },
+        { "revcursor",  STRING,  &colorname[257] },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },
