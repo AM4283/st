@@ -110,6 +110,8 @@ unsigned int tabspaces = 8;
 
 /* bg opacity */
 float alpha = 0.9;
+float alphaOffset = 0.0;
+float alphaUnfocus;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -213,6 +215,7 @@ unsigned int defaultfg = 259;
 unsigned int defaultbg = 258;
 unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
+unsigned int background = 258;
 
 /*
  * Default shape of cursor
@@ -276,6 +279,7 @@ ResourcePref resources[] = {
 		{ "foreground",   STRING,  &colorname[259] },
 		{ "cursor",  STRING,  &colorname[256] },
         { "revcursor",  STRING,  &colorname[257] },
+        { "alphaOffset",  FLOAT,   &alphaOffset },
 		{ "termname",     STRING,  &termname },
 		{ "shell",        STRING,  &shell },
 		{ "minlatency",   INTEGER, &minlatency },

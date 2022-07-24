@@ -1,5 +1,21 @@
 # My version of Luke's build of st - the simple (suckless) terminal
 
+## My Additions
+The [st-anysize](https://st.suckless.org/patches/anysize/) patch, credit to Augusto Born de Oliveira <augustoborn@gmail.com>
+
+Allows st to be resized to any pixel size, allowing for a more balanced left/right top/bottom border that always fills the entire space allocated
+
+Credit to Luke Smith for the [original build of st](https://github.com/LukeSmithxyz/st), this build is basically just his build with one extra patch.
+
+### Other Links
+Some of my other configurations for programs including a build of [dwm](https://dwm.suckless.org/) that utilizes st as a default terminal can be found on my GitHub:
+
+- <a href="https://github.com/AM4283/dotfiles" target="_blank">dotfiles/scripts</a>
+- <a href="https://github.com/AM4283/dwm" target="_blank">dwm</a>
+- <a href="https://github.com/AM4283/dwmblocks" target="_blank">dwmblocks</a>
+
+# Luke's build
+
 The [suckless terminal (st)](https://st.suckless.org/) with some additional
 features that make it literally the best terminal emulator ever:
 
@@ -39,7 +55,7 @@ features that make it literally the best terminal emulator ever:
 You should have xlib header files and libharfbuzz build files installed.
 
 ```
-git clone https://github.com/LukeSmithxyz/st
+git clone https://github.com/AM4283/st
 cd st
 sudo make install
 ```
@@ -48,10 +64,10 @@ Note that [scroll](https://github.com/lukesmithxyz/scroll) is automatically
 pulled and installed when you make this build of st.
 
 Users of Arch-based distros can also install it from the AUR as
-[st-luke-git](https://aur.archlinux.org/packages/st-luke-git/).
+[st-luke-git](https://aur.archlinux.org/packages/st-luke-git/). **Note**: Does not include the anysize patch
 
 Obviously, `make` is required to build. `fontconfig` is required for the
-default build, since it asks `fontconfig` for your system monospace font.  It
+default build, since it asks `fontconfig` for your system monospace font. It
 might be obvious, but `libX11` and `libXft` are required as well. Chances are,
 you have all of this installed already.
 
